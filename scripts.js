@@ -24,6 +24,17 @@ document.getElementById('detokenForm').addEventListener('submit', async (e) => {
   document.getElementById('output').textContent = JSON.stringify(data, null, 2);
 });
 
-setTimeout(() => {
-    location.reload();
-  }, 60000); // 60,000 milliseconds = 60 seconds
+function displayResult(text) {
+  document.getElementById("tokenOutput").textContent = text;
+
+  setTimeout(() => {
+    location.reload(); // Purge after 60 seconds
+  }, 60000);
+}
+
+function copyToken() {
+  const tokenText = document.getElementById("tokenOutput").textContent;
+  navigator.clipboard.writeText(tokenText).then(() => {
+    alert("Copied to clipboard.");
+  });
+}
