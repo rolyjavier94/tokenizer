@@ -23,3 +23,7 @@ document.getElementById('detokenForm').addEventListener('submit', async (e) => {
   const data = await res.json();
   document.getElementById('output').textContent = JSON.stringify(data, null, 2);
 });
+
+setTimeout(() => {
+    location.reload();
+  }, 60000); // 60,000 milliseconds = 60 seconds
